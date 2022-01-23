@@ -1,28 +1,44 @@
+/**
+ * Mandatory syntax-theme variable definitions.
+ */
+
+@active-line:  #fafbfc;   // --atom-primer-active-line
+@bg-main:      #fff;      // --color-canvas-default
+@bg-selected:  #54aeff66; // --color-accent-muted
+@border:       #d0d7de;   // --color-border-default
+@diff-add:     #34d058;   // --color-diff-blob-addition-num-bg
+@diff-del:     #ffd7d5;   // --color-diff-blob-deletion-num-bg
+@diff-mod:     #fff8c5;   // --color-attention-subtle
+@faint:        #959da5;   // --atom-primer-faded-text
+@gutter:       #24292e;   // --color-fg-subtle
+@text:         #24292f;   // --color-fg-default
+
+
 // General colours
-@syntax-text-color: #24292e;
-@syntax-cursor-color: #24292e;
-@syntax-selection-color: #c8c8fa;
-@syntax-background-color: #fff;
-@syntax-cursor-line: #fafbfc;
-@syntax-invisible-color: #959da5;
+@syntax-text-color:                       @text;
+@syntax-cursor-color:                     @text;
+@syntax-selection-color:                  @bg-selected;
+@syntax-background-color:                 @bg-main;
+@syntax-cursor-line:                      @active-line;
+@syntax-invisible-color:                  @faint;
 
-// Guide colours
-@syntax-wrap-guide-color: #959da5;
-@syntax-indent-guide-color: #959da5;
-@syntax-invisible-character-color: #959da5;
+// Wrap-guide colours
+@syntax-wrap-guide-color:                 @faint;
+@syntax-indent-guide-color:               @faint;
+@syntax-invisible-character-color:        @faint;
 
-// Find-and-replace markers
-@syntax-result-marker-color: #e36209;
-@syntax-result-marker-color-selected: #fff8f2;
+// For marking find-and-replace search results
+@syntax-result-marker-color:              @border;
+@syntax-result-marker-color-selected:     @bg-selected;
 
 // Gutter colours
-@syntax-gutter-text-color: #24292e;
-@syntax-gutter-text-color-selected: #24292e;
-@syntax-gutter-background-color: #fff;
-@syntax-gutter-background-color-selected: #fafbfc;
+@syntax-gutter-text-color:                @gutter;
+@syntax-gutter-text-color-selected:       @text;
+@syntax-gutter-background-color:          @bg-main;
+@syntax-gutter-background-color-selected: @active-line;
 
-// For git-diff info; i.e. in the gutter
-@syntax-color-renamed: #fafbfc;
-@syntax-color-added: #34d058;
-@syntax-color-modified: #f9c513;
-@syntax-color-removed: #d73a49;
+// For git-diff(1) info in the gutter.
+@syntax-color-renamed:                    @active-line;
+@syntax-color-added:                      @diff-add;
+@syntax-color-modified:                   @diff-mod;
+@syntax-color-removed:                    @diff-del;

@@ -1,0 +1,34 @@
+/**
+ * Colour variables for CSS rules that *don't* require "syntax--"
+ * prefixes. Mostly used (and required) by syntax-variables.less
+ */
+
+/* Light mode (default) */
+:root{
+	--color-fg-default:                #24292f;
+	--color-accent-muted:              #54aeff66;
+	--color-canvas-default:            #fff;
+	--color-border-default:            #d0d7de;
+	--color-fg-subtle:                 #24292e;
+	--color-diff-blob-addition-num-bg: #34d058;
+	--color-diff-blob-deletion-num-bg: #ffd7d5;
+	--color-attention-subtle:          #fff8c5;
+	--atom-primer-active-line:         #fafbfc;
+	--atom-primer-faded-text:          #959da5;
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark){
+	:root{
+		--color-fg-default:                #c9d1d9;
+		--color-accent-muted:              #388bfd66;
+		--color-canvas-default:            #0d1117;
+		--color-border-default:            #30363d;
+		--color-fg-subtle:                 #484f58;
+		--color-diff-blob-addition-num-bg: #3fb9504d;
+		--color-diff-blob-deletion-num-bg: #f851494d;
+		--color-attention-subtle:          #bb800926;
+		--atom-primer-active-line:         #444d56;
+		--atom-primer-faded-text:          #6a737d;
+	}
+}
