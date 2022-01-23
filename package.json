@@ -1,0 +1,12 @@
+{
+	"name": "atom-github-syntax",
+	"theme": "syntax",
+	"private": true,
+	"version": "0.0.0",
+	"description": "Up-to-date syntax colours that match GitHub's motif, including day/night mode.",
+	"repository": "https://github.com/Alhadis/Atom-GitHubSyntax",
+	"license": "ISC",
+	"engines": {
+		"atom": "*"
+	}
+}
