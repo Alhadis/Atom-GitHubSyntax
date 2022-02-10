@@ -9,12 +9,11 @@
 	--color-accent-muted:              #54aeff66;
 	--color-canvas-default:            #fff;
 	--color-border-default:            #d0d7de;
-	--color-fg-subtle:                 #24292e;
+	--color-fg-subtle:                 #6e7781;
 	--color-diff-blob-addition-num-bg: #34d058;
 	--color-diff-blob-deletion-num-bg: #ffd7d5;
 	--color-attention-subtle:          #fff8c5;
-	--atom-primer-active-line:         #fafbfc;
-	--atom-primer-faded-text:          #959da5;
+	--color-attention-muted:           #d4a72c66;
 }
 
 /* Dark mode */
@@ -28,7 +27,6 @@
 		--color-diff-blob-addition-num-bg: #3fb9504d;
 		--color-diff-blob-deletion-num-bg: #f851494d;
 		--color-attention-subtle:          #bb800926;
-		--atom-primer-active-line:         #444d56;
-		--atom-primer-faded-text:          #6a737d;
+		--color-attention-muted:           #bb800966;
 	}
 }

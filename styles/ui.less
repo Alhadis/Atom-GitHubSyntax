@@ -1,0 +1,89 @@
+@import (inline) "./colours/ui.css";
+
+@active-line:        ~"var(--color-attention-subtle)";
+@active-line-border: ~"var(--color-attention-muted)";
+@bg-main:            ~"var(--color-canvas-default)";
+@bg-selected:        ~"var(--color-accent-muted)";
+@border:             ~"var(--color-border-default)";
+@diff-add:           ~"var(--color-diff-blob-addition-num-bg)";
+@diff-del:           ~"var(--color-diff-blob-deletion-num-bg)";
+@diff-mod:           ~"var(--color-attention-subtle)";
+@gutter:             ~"var(--color-fg-subtle)";
+@text:               ~"var(--color-fg-default)";
+
+atom-text-editor{
+	background-color: @bg-main;
+	color: @text;
+
+	.illuminate-cursor .line{
+		padding-left: ~"calc((4 / 12) * 1em)";
+		&.cursor-line{
+			background-color: @active-line;
+			box-shadow: inset ~"calc((2 / 12) * 1em)" 0 0 @active-line-border;
+		}
+	}
+
+	.cursor{
+		border-left: 2px solid @text;
+	}
+
+	.selection .region{
+		background-color: @bg-selected;
+	}
+
+	.bracket-matcher .region{
+		border-bottom: 1px solid @text;
+		box-sizing: border-box;
+		z-index: 1;
+	}
+
+	.invisible,
+	.invisible-character,
+	.indent-guide,
+	.wrap-guide{
+		color: @border;
+	}
+
+	.gutter{
+		background-color: @bg-main;
+		color: @gutter;
+
+		.line-number{
+			color: @gutter;
+			opacity: 1;
+			-webkit-font-smoothing: antialiased;
+			
+			&.cursor-line,
+			&:hover,
+			.icon-right{
+				color: @text;
+			}
+		}
+
+		&:not(.git-diff-icon) .line-number.git-line-removed{
+			&.git-line-removed::before{
+				bottom: -3px;
+			}
+			&::after{
+				content: "";
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 25px;
+				border-bottom: 1px dotted @diff-del;
+				pointer-events: none;
+			}
+		}
+	}
+
+	// Project search results
+	.search-results .syntax--marker{
+		.region{
+			background-color: transparent;
+			border: 1px solid @border;
+		}
+		&.current-result .region{
+			border: 1px solid @bg-selected;
+		}
+	}
+}
