@@ -30,13 +30,25 @@ const pairings = (await fetch("https://raw.githubusercontent.com/Alhadis/languag
 		.reverse())
 	.sort();
 
+
+const scopesList = pairings.map(entry => entry[1]).sort();
+const successors = {__proto__: null};
+for(const scope of scopesList)
+	successors[scope] = [...new Set(scopesList.filter(x => x.startsWith(`${scope}.`)))];
+
+const munge = scopes => {
+	scopes = scopes.split(".").filter(Boolean).map(scope => `syntax--${scope}`).join(" ");
+	return [`[class="${scopes}"]`, `[class^="${scopes} "]`];
+};
 const map = {__proto__: null};
 for(let [plClass, scopes] of pairings){
-	scopes = scopes.split(".").filter(Boolean).map(scope => `syntax--${scope}`).join(" ");
-	scopes = [`[class="${scopes}"]`, `[class^="${scopes} "]`];
-	plClass in map
-		? map[plClass].push(...scopes)
-		: map[plClass] = scopes;
+	const not = successors[scopes]?.length ? successors[scopes].map(munge).flat() : [];
+	scopes = munge(scopes);
+	if(plClass in map){
+		map[plClass].is.push(...scopes);
+		map[plClass].not.push(...not);
+	}
+	else map[plClass] = {is: scopes, not};
 }
 
 const maxLength = Object.keys(map)
@@ -46,7 +58,10 @@ const maxLength = Object.keys(map)
 let src = "";
 for(const key in map){
 	const pad = " ".repeat(Math.max(1, maxLength - key.length));
-	src += `@${key}:${pad}~':is(${map[key].join(", ")})';\n`;
+	let {is, not} = map[key];
+	is  = `:is(${is.join(", ")})`;
+	not = not.length ? not.map(x => `:not(${x})`).join("") : "";
+	src += `@${key}:${pad}~'${is}${not}';\n`;
 }
 
 const dir = dirname(fileURLToPath(import.meta.url));
