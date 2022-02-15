@@ -148,7 +148,7 @@ new Promise(resolve => {
 		'@import "./includes/scope-map.less";\n',
 		
 		"/* Light mode (default) */",
-		"@media not (prefers-color-scheme: dark){",
+		"@media not all and (prefers-color-scheme: dark){",
 		lightMode.trim().replace(/^/gm, "\t"),
 		"}\n",
 		
