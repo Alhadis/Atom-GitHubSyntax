@@ -90,8 +90,15 @@ new Promise(resolve => {
 	// Resolve the computed value of any variables referenced by PrettyLights classes
 	const bodyStyle = window.getComputedStyle(document.body);
 	if(Object.keys(varRefs).length){
+		const saneDef = /^(?!$)(?:html|:root)?(?:\[data-(?:color-mode|(?:dark|light)-theme)="[^"]*"\])*$/;
 		console.group("Expanding variable references…");
 		for(const key in varRefs){
+			
+			// XXX: Make sure variable definitions don't exist in awkward places
+			for(const {selector, rule} of varDefs[key])
+				if(!selector.trim().split(/\s*,\s*/g).every(str => saneDef.test(str)))
+					throw new TypeError(`Syntax variable defined in unexpected place: ${selector}`);
+			
 			const value = bodyStyle.getPropertyValue(key);
 			for(const [rule, props] of varRefs[key]){
 				for(const prop of props){
