@@ -1,3 +1,7 @@
+const plClasses = "ba bu c c1 c2 cce corl e en ent ii k kos mb mc md mdr mh mi mi1 mi2 ml ms pds pse s s1 sg smi smw sr sra sre v".split(" ");
+const plClassRegex = new RegExp(String.raw `\.pl-(?:${plClasses.join("|")})(?=$|[,\s:+>~{\[])`, "g");
+const wait = ms => new Promise($ => setTimeout($, ms));
+
 /**
  * Enumerate a list of stylesheets and return a flattened list of styles.
  * @param {CSSStyleSheet[]} sheets
@@ -46,15 +50,12 @@ function enumStyles(...sheets){
 	return results;
 }
 
-const plClasses = "ba bu c c1 c2 cce corl e en ent ii k kos mb mc md mdr mh mi mi1 mi2 ml ms pds pse s s1 sg smi smw sr sra sre v".split(" ");
-const plClassRegex = new RegExp(String.raw `\.pl-(?:${plClasses.join("|")})(?=$|[,\s:+>~{\[])`, "g");
-
-new Promise(resolve => {
-	if("complete" === document.readyState)
-		return resolve();
-	const fn = () => (window.removeEventListener("load", fn), resolve());
-	window.addEventListener("load", fn);
-}).then(() => {
+/**
+ * Extract a Less stylesheet from GitHub's front-end.
+ * @return {String}
+ * @internal
+ */
+function scrapeStyles(){
 	const rules = [];
 	const varRefs = {__proto__: null};
 	const varDefs = {__proto__: null};
@@ -122,4 +123,37 @@ new Promise(resolve => {
 		result += "}\n";
 	}
 	return result;
+}
+
+new Promise(resolve => {
+	if("complete" === document.readyState)
+		return resolve();
+	const fn = () => (window.removeEventListener("load", fn), resolve());
+	window.addEventListener("load", fn);
+}).then(async () => {
+	const {dataset} = document.documentElement;
+	
+	// XXX: Sanity checks to ensure <html> element has a manipulatable `data-color-mode` attribute
+	if(dataset && !(dataset instanceof DOMStringMap))
+		throw new TypeError("Expected <html> dataset to be DOMStringMap");
+	if(!Object.hasOwn(dataset, "colorMode"))
+		throw new TypeError("Expected <html> dataset to define `colorMode`");
+	if(!["light", "dark", "auto"].includes(dataset.colorMode))
+		throw new TypeError("Expected <html data-color-mode='…'> to be `light`, `dark` or `auto`");
+	
+	dataset.colorMode = "light"; await wait(100); const lightMode = scrapeStyles();
+	dataset.colorMode = "dark";  await wait(100); const darkMode  = scrapeStyles();
+	return [
+		'@import "./scope-map.less";\n',
+		
+		"/* Light mode (default) */",
+		"@media not (prefers-color-scheme: dark){",
+		lightMode.trim().replace(/^/gm, "\t"),
+		"}\n",
+		
+		"/* Dark mode */",
+		"@media (prefers-color-scheme: dark){",
+		darkMode.trim().replace(/^/gm, "\t"),
+		"}\n",
+	].join("\n");
 });
