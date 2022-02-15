@@ -78,7 +78,7 @@ function scrapeStyles(){
 			
 			// Record any variable references
 			for(const key in rule.style){
-				for(const name of rule.style[key].match(/(?<=\bvar\()--[-\w]+(?=[,\s\)])/g) || []){
+				for(const name of rule.style[key].match(/(?<=\bvar\()--[-\w]+(?=[,\s)])/g) || []){
 					const refs = varRefs[name] ??= new Map();
 					refs.has(rule) || refs.set(rule, new Set());
 					refs.get(rule).add(key);
@@ -96,7 +96,7 @@ function scrapeStyles(){
 		for(const key in varRefs){
 			
 			// XXX: Make sure variable definitions don't exist in awkward places
-			for(const {selector, rule} of varDefs[key])
+			for(const {selector} of varDefs[key])
 				if(!selector.trim().split(/\s*,\s*/g).every(str => saneDef.test(str)))
 					throw new TypeError(`Syntax variable defined in unexpected place: ${selector}`);
 			
@@ -113,7 +113,7 @@ function scrapeStyles(){
 	
 	// Compile the Less stylesheet
 	let result = "";
-	for(let {selector, style, media} of rules){
+	for(let {selector, style} of rules){
 		selector = selector
 			.replace(plClassRegex, match => match.replace(/^\.?(.+)/, "@{$1}"))
 			.replace(/\s*,\s*/g, ",\n");
