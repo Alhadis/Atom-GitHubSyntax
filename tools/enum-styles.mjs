@@ -144,7 +144,8 @@ new Promise(resolve => {
 	dataset.colorMode = "light"; await wait(100); const lightMode = scrapeStyles();
 	dataset.colorMode = "dark";  await wait(100); const darkMode  = scrapeStyles();
 	return [
-		'@import "./scope-map.less";\n',
+		"// Generated file; do not edit. Instead, run `tools/enum-styles.mjs`.",
+		'@import "./includes/scope-map.less";\n',
 		
 		"/* Light mode (default) */",
 		"@media not (prefers-color-scheme: dark){",

@@ -65,7 +65,7 @@ for(const key in map){
 }
 
 const dir = dirname(fileURLToPath(import.meta.url));
-let path = resolve(join(dir, "..", "styles", "scope-map.less"));
+let path = resolve(join(dir, "..", "styles", "includes", "scope-map.less"));
 writeFileSync(path, src, "utf8");
 
 // Update list of scope-classes in `enum-styles.mjs`
