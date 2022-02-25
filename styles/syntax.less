@@ -4,7 +4,8 @@
 
 /* Light mode (default) */
 @media not all and (prefers-color-scheme: dark){
-	html:not([data-github-theme]){
+	html:not([data-github-theme]),
+	html[data-github-theme=""]{
 		@{pl-c}{
 			color: #6e7781;
 		}
@@ -320,7 +321,8 @@
 
 /* Dark mode */
 @media (prefers-color-scheme: dark){
-	html:not([data-github-theme]){
+	html:not([data-github-theme]),
+	html[data-github-theme=""]{
 		@{pl-c}{
 			color: #8b949e;
 		}

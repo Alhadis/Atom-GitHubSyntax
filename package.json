@@ -10,11 +10,28 @@
 	"eslintConfig": {
 		"extends": "@alhadis",
 		"overrides": [{
+			"files": "index.js",
+			"globals": {"atom": "readonly"}
+		},{
 			"files": "tools/extract-themes.mjs",
 			"rules": {"prefer-rest-params": 0}
 		}]
 	},
 	"engines": {
 		"atom": "*"
+	},
+	"configSchema": {
+		"theme": {
+			"title": "Theme variant",
+			"description": "Select an alternate colour-palette.",
+			"type": "string",
+			"default": "",
+			"enum": [
+				{"value": "",              "description": "None (default)"},
+				{"value": "high-contrast", "description": "High contrast"},
+				{"value": "colour-blind",  "description": "Colour-blindness"},
+				{"value": "dimmed",        "description": "Dimmed (dark only)"}
+			]
+		}
 	}
 }

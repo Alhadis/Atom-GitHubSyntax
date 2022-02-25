@@ -4,7 +4,8 @@
 
 /* Light mode (default) */
 @media not all and (prefers-color-scheme: dark){
-	html:not([data-github-theme]){
+	html:not([data-github-theme]),
+	html[data-github-theme=""]{
 		%light%
 	}
 	html[data-github-theme="high-contrast"]{
@@ -17,7 +18,8 @@
 
 /* Dark mode */
 @media (prefers-color-scheme: dark){
-	html:not([data-github-theme]){
+	html:not([data-github-theme]),
+	html[data-github-theme=""]{
 		%dark%
 	}
 	html[data-github-theme="high-contrast"]{
