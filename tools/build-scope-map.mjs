@@ -51,6 +51,11 @@ for(let [plClass, scopes] of pairings){
 	else map[plClass] = {is: scopes, not};
 }
 
+// Filter out contradictory `:not` selectors
+for(const {is, not} of Object.values(map))
+	for(let i = not.length - 1; i >= 0; --i)
+		not[i] && is.includes(not[i]) && not.splice(i, 1);
+
 const maxLength = Object.keys(map)
 	.sort(({length: a}, {length: b}) => a < b ? -1 : a > b ? 1 : 0)
 	.pop().length + 1;
@@ -68,9 +73,9 @@ const dir = dirname(fileURLToPath(import.meta.url));
 let path = resolve(join(dir, "..", "styles", "includes", "scope-map.less"));
 writeFileSync(path, src, "utf8");
 
-// Update list of scope-classes in `enum-styles.mjs`
+// Update list of scope-classes in `extract-themes.mjs`
 let didReplace = false, didChange = false;
-path = join(dir, "enum-styles.mjs");
+path = join(dir, "extract-themes.mjs");
 src = readFileSync(path, "utf8").replace(
 	/(?<=^\s*const\s+plClasses\s*=\s*")[^"]*(?="\s*\.\s*split\s*\(\s*" "\s*\)\s*;\s*$)/m,
 	str => {
