@@ -184,7 +184,7 @@ async function main(){
 
 if("object" === typeof window && window === globalThis)
 	main(x => console.dir(x));
-else (async () => {
+else(async () => {
 	const {readFileSync} = await import("fs");
 	console.log(JSON.stringify({
 		args: [readFileSync("../styles/syntax.less.tmpl", "utf8").trimEnd()],

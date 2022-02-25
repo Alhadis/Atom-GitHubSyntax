@@ -41,7 +41,7 @@ curl -qsS "http://$host:$port/session/$session_id/url" \
 | grep 'scope-previews\.nanorc'
 
 # Execute `extract-themes.mjs` in the browser window's context
-curl -qsSH "Content-Type: application/json" -d "`node ./$2`" \
+curl -qsSH "Content-Type: application/json" -d "`node "./$2"`" \
 	"http://$host:$port/session/$session_id/execute/async" \
 	| jq -r .value > ../styles/syntax.less
 
