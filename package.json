@@ -7,6 +7,13 @@
 	"description": "Up-to-date syntax colours that match GitHub's motif, including day/night mode.",
 	"repository": "https://github.com/Alhadis/Atom-GitHubSyntax",
 	"license": "ISC",
+	"eslintConfig": {
+		"extends": "@alhadis",
+		"overrides": [{
+			"files": "tools/extract-themes.mjs",
+			"rules": {"prefer-rest-params": 0}
+		}]
+	},
 	"engines": {
 		"atom": "*"
 	}

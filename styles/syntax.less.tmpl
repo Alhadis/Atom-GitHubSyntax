@@ -1,0 +1,32 @@
+// -*- mode: less-css; -*- vim: ft=less
+// Generated file; do not edit. Instead, run `tools/update-styles.sh`.
+@import "./includes/scope-map.less";
+
+/* Light mode (default) */
+@media not all and (prefers-color-scheme: dark){
+	html:not([data-github-theme]){
+		%light%
+	}
+	html[data-github-theme="high-contrast"]{
+		%lightHighContrast%
+	}
+	html[data-github-theme="colour-blind"]{
+		%lightColourBlind%
+	}
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark){
+	html:not([data-github-theme]){
+		%dark%
+	}
+	html[data-github-theme="high-contrast"]{
+		%darkHighContrast%
+	}
+	html[data-github-theme="colour-blind"]{
+		%darkColourBlind%
+	}
+	html[data-github-theme="dimmed"]{
+		%darkDimmed%
+	}
+}

@@ -1,4 +1,5 @@
-async function main(fn = () => {}){
+async function main(){
+	const args = [...arguments], fn = args.pop() || (() => {}), template = args.shift() || "";
 	const plClasses = "ba bu c c1 c2 cce corl e en ent ii k kos mb mc md mdr mh mi mi1 mi2 ml ms pds pse s s1 sg smi smw sr sra sre v".split(" ");
 	const plClassRegex = new RegExp(String.raw `\.pl-(?:${plClasses.join("|")})(?=$|[,\s:+>~{\[])`, "g");
 
@@ -158,7 +159,7 @@ async function main(fn = () => {}){
 		el.removeAttribute("data-href");
 		el.setAttribute("href", href);
 	}
-	const result = {
+	const themes = {
 		// Load light-coloured themes
 		light:             await scrapeStyles("light", "light"),
 		lightHighContrast: await scrapeStyles("light", "light_high_contrast"),
@@ -170,13 +171,28 @@ async function main(fn = () => {}){
 		darkColourBlind:   await scrapeStyles("dark", "dark_colorblind"),
 		darkDimmed:        await scrapeStyles("dark", "dark_dimmed"),
 	};
+	const result = template.replace(
+		/^([ \t]*)(\S.*?)?%([a-z][a-zA-Z0-9]*)%/gm,
+		(match, indent = "", junk = "", name = "") => {
+			if(name in themes)
+				return indent + junk + themes[name].trimEnd().replace(/(?<=\n)/g, indent);
+			throw new ReferenceError(`Unrecognised placeholder: %${name}%`);
+		});
 	fn(result);
 	return result;
 }
 
 if("object" === typeof window && window === globalThis)
 	main(x => console.dir(x));
-else{
-	const script = main.toString().trim().replace(/^.*?{|(?:\t*\breturn\s+\w+;\s*)?}$/gs, "");
-	console.log(JSON.stringify({args: [], script}));
-}
+else (async () => {
+	const {readFileSync} = await import("fs");
+	console.log(JSON.stringify({
+		args: [readFileSync("../styles/syntax.less.tmpl", "utf8").trimEnd()],
+		script: `(async () => {${
+			main.toString().trim().replace(/^.*?{|}$/gs, "")
+		}})();`,
+	}));
+})().catch(error => {
+	console.error(error);
+	process.exit(1);
+});
