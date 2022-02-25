@@ -22,6 +22,7 @@
 	},
 	"configSchema": {
 		"theme": {
+			"order": 1,
 			"title": "Theme variant",
 			"description": "Select an alternate colour-palette.",
 			"type": "string",
@@ -32,6 +33,13 @@
 				{"value": "colour-blind",  "description": "Colour-blindness"},
 				{"value": "dimmed",        "description": "Dimmed (dark only)"}
 			]
+		},
+		"matchFont": {
+			"order": 2,
+			"title": "Match font",
+			"description": "Override editor settings to match the exact font style used on GitHub.",
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

@@ -87,3 +87,15 @@ atom-text-editor{
 		}
 	}
 }
+
+// Match GitHub's font styling
+html.match-github-font{
+	atom-workspace{
+		--editor-font-size: 12px;
+		--editor-font-family: ui-monospace,SFMono-Regular,SF Mono,Menlo,Consolas,Liberation Mono,monospace;
+		--editor-line-height: 20px;
+	}
+	atom-text-editor .line-number .icon-right{
+		padding-left: ~"calc(.4em + 3px)";
+	}
+}
