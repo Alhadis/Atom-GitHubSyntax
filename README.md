@@ -100,7 +100,7 @@ variables listed in [`scope-map.less`](styles/includes/scope-map.less).
 
 <!-- Referenced links --------------------------------------------------------->
 [1]: https://github.com/github/linguist/blob/HEAD/CONTRIBUTING.md
-[2]: https://github.com/Alhadis/atom-github-syntax/blob/static/preview.svg?raw=1
+[2]: https://github.com/Alhadis/Atom-GitHubSyntax/blob/static/preview.svg?raw=1
 [3]: https://github.com/github/roadmap/issues/357
 [4]: https://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/
 [5]: ./tools/build-scope-map.mjs
