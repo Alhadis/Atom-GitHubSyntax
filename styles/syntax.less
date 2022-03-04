@@ -2,10 +2,10 @@
 // Generated file; do not edit. Instead, run `tools/update-styles.sh`.
 @import "./includes/scope-map.less";
 
-/* Light mode (default) */
-@media not all and (prefers-color-scheme: dark){
-	html:not([data-github-theme]),
-	html[data-github-theme=""]{
+/* Manually-selected light mode */
+html[data-colour-mode="light"]{
+	&:not([data-github-theme]),
+	&[data-github-theme=""]{
 		@{pl-c}{
 			color: #6e7781;
 		}
@@ -109,7 +109,7 @@
 			color: #0a3069;
 		}
 	}
-	html[data-github-theme="high-contrast"]{
+	&[data-github-theme="high-contrast"]{
 		@{pl-c}{
 			color: #66707B;
 		}
@@ -213,7 +213,7 @@
 			color: #032563;
 		}
 	}
-	html[data-github-theme="colour-blind"]{
+	&[data-github-theme="colour-blind"]{
 		@{pl-c}{
 			color: #6e7781;
 		}
@@ -319,10 +319,10 @@
 	}
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark){
-	html:not([data-github-theme]),
-	html[data-github-theme=""]{
+/* Manually-selected dark mode */
+html[data-colour-mode="dark"]{
+	&:not([data-github-theme]),
+	&[data-github-theme=""]{
 		@{pl-c}{
 			color: #8b949e;
 		}
@@ -426,7 +426,7 @@
 			color: #a5d6ff;
 		}
 	}
-	html[data-github-theme="high-contrast"]{
+	&[data-github-theme="high-contrast"]{
 		@{pl-c}{
 			color: #bdc4cc;
 		}
@@ -530,7 +530,7 @@
 			color: #addcff;
 		}
 	}
-	html[data-github-theme="colour-blind"]{
+	&[data-github-theme="colour-blind"]{
 		@{pl-c}{
 			color: #8b949e;
 		}
@@ -634,7 +634,7 @@
 			color: #a5d6ff;
 		}
 	}
-	html[data-github-theme="dimmed"]{
+	&[data-github-theme="dimmed"]{
 		@{pl-c}{
 			color: #768390;
 		}
@@ -736,6 +736,750 @@
 			text-decoration-color: currentcolor;
 			text-decoration-thickness: auto;
 			color: #96d0ff;
+		}
+	}
+}
+
+/* System-synced light mode */
+@media not all and (prefers-color-scheme: dark){
+	html[data-colour-mode=""],
+	html:not([data-colour-mode]){
+		&:not([data-github-theme]),
+		&[data-github-theme=""]{
+			@{pl-c}{
+				color: #6e7781;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #0550ae;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #8250df;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #24292f;
+			}
+			@{pl-ent}{
+				color: #116329;
+			}
+			@{pl-k}{
+				color: #cf222e;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #0a3069;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #953800;
+			}
+			@{pl-bu}{
+				color: #82071e;
+			}
+			@{pl-ii}{
+				color: #f6f8fa;
+				background-color: #82071e;
+			}
+			@{pl-c2}{
+				color: #f6f8fa;
+				background-color: #cf222e;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #116329;
+			}
+			@{pl-ml}{
+				color: #3b2300;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #0550ae;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #24292f;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #24292f;
+			}
+			@{pl-md}{
+				color: #82071e;
+				background-color: #FFEBE9;
+			}
+			@{pl-mi1}{
+				color: #116329;
+				background-color: #dafbe1;
+			}
+			@{pl-mc}{
+				color: #953800;
+				background-color: #ffd8b5;
+			}
+			@{pl-mi2}{
+				color: #eaeef2;
+				background-color: #0550ae;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #8250df;
+			}
+			@{pl-ba}{
+				color: #57606a;
+			}
+			@{pl-sg}{
+				color: #8c959f;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #0a3069;
+			}
+		}
+		&[data-github-theme="high-contrast"]{
+			@{pl-c}{
+				color: #66707B;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #023b95;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #622cbc;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #0E1116;
+			}
+			@{pl-ent}{
+				color: #024c1a;
+			}
+			@{pl-k}{
+				color: #a0111f;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #032563;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #702c00;
+			}
+			@{pl-bu}{
+				color: #6e011a;
+			}
+			@{pl-ii}{
+				color: #FFFFFF;
+				background-color: #6e011a;
+			}
+			@{pl-c2}{
+				color: #FFFFFF;
+				background-color: #a0111f;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #024c1a;
+			}
+			@{pl-ml}{
+				color: #2e1800;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #023b95;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #0E1116;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #0E1116;
+			}
+			@{pl-md}{
+				color: #6e011a;
+				background-color: #fff0ee;
+			}
+			@{pl-mi1}{
+				color: #024c1a;
+				background-color: #d2fedb;
+			}
+			@{pl-mc}{
+				color: #702c00;
+				background-color: #ffc67b;
+			}
+			@{pl-mi2}{
+				color: #E7ECF0;
+				background-color: #023b95;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #622cbc;
+			}
+			@{pl-ba}{
+				color: #4B535D;
+			}
+			@{pl-sg}{
+				color: #88929D;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #032563;
+			}
+		}
+		&[data-github-theme="colour-blind"]{
+			@{pl-c}{
+				color: #6e7781;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #0550ae;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #8250df;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #24292f;
+			}
+			@{pl-ent}{
+				color: #054da9;
+			}
+			@{pl-k}{
+				color: #ac5e00;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #0a3069;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #953800;
+			}
+			@{pl-bu}{
+				color: #6c3900;
+			}
+			@{pl-ii}{
+				color: #f6f8fa;
+				background-color: #6c3900;
+			}
+			@{pl-c2}{
+				color: #f6f8fa;
+				background-color: #ac5e00;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #054da9;
+			}
+			@{pl-ml}{
+				color: #3b2300;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #0550ae;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #24292f;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #24292f;
+			}
+			@{pl-md}{
+				color: #6c3900;
+				background-color: #fefe48;
+			}
+			@{pl-mi1}{
+				color: #054da9;
+				background-color: #c0f6ff;
+			}
+			@{pl-mc}{
+				color: #953800;
+				background-color: #ffd8b5;
+			}
+			@{pl-mi2}{
+				color: #eaeef2;
+				background-color: #0550ae;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #8250df;
+			}
+			@{pl-ba}{
+				color: #57606a;
+			}
+			@{pl-sg}{
+				color: #8c959f;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #0a3069;
+			}
+		}
+	}
+}
+
+/* System-synced dark mode */
+@media (prefers-color-scheme: dark){
+	html[data-colour-mode=""],
+	html:not([data-colour-mode]){
+		&:not([data-github-theme]),
+		&[data-github-theme=""]{
+			@{pl-c}{
+				color: #8b949e;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #79c0ff;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #d2a8ff;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #c9d1d9;
+			}
+			@{pl-ent}{
+				color: #7ee787;
+			}
+			@{pl-k}{
+				color: #ff7b72;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #a5d6ff;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #ffa657;
+			}
+			@{pl-bu}{
+				color: #f85149;
+			}
+			@{pl-ii}{
+				color: #f0f6fc;
+				background-color: #8e1519;
+			}
+			@{pl-c2}{
+				color: #f0f6fc;
+				background-color: #b62324;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #7ee787;
+			}
+			@{pl-ml}{
+				color: #f2cc60;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #1f6feb;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #c9d1d9;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #c9d1d9;
+			}
+			@{pl-md}{
+				color: #ffdcd7;
+				background-color: #67060c;
+			}
+			@{pl-mi1}{
+				color: #aff5b4;
+				background-color: #033a16;
+			}
+			@{pl-mc}{
+				color: #ffdfb6;
+				background-color: #5a1e02;
+			}
+			@{pl-mi2}{
+				color: #c9d1d9;
+				background-color: #1158c7;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #d2a8ff;
+			}
+			@{pl-ba}{
+				color: #8b949e;
+			}
+			@{pl-sg}{
+				color: #484f58;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #a5d6ff;
+			}
+		}
+		&[data-github-theme="high-contrast"]{
+			@{pl-c}{
+				color: #bdc4cc;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #91cbff;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #dbb7ff;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #f0f3f6;
+			}
+			@{pl-ent}{
+				color: #72f088;
+			}
+			@{pl-k}{
+				color: #ff9492;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #addcff;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #ffb757;
+			}
+			@{pl-bu}{
+				color: #ff6a69;
+			}
+			@{pl-ii}{
+				color: #ffffff;
+				background-color: #e82a2f;
+			}
+			@{pl-c2}{
+				color: #ffffff;
+				background-color: #ff4445;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #72f088;
+			}
+			@{pl-ml}{
+				color: #fbd669;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #409eff;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #f0f3f6;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #f0f3f6;
+			}
+			@{pl-md}{
+				color: #ffdedb;
+				background-color: #cc1421;
+			}
+			@{pl-mi1}{
+				color: #acf7b6;
+				background-color: #007728;
+			}
+			@{pl-mc}{
+				color: #ffe1b4;
+				background-color: #a74c00;
+			}
+			@{pl-mi2}{
+				color: #f0f3f6;
+				background-color: #318bf8;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #dbb7ff;
+			}
+			@{pl-ba}{
+				color: #bdc4cc;
+			}
+			@{pl-sg}{
+				color: #7a828e;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #addcff;
+			}
+		}
+		&[data-github-theme="colour-blind"]{
+			@{pl-c}{
+				color: #8b949e;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #79c0ff;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #d2a8ff;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #c9d1d9;
+			}
+			@{pl-ent}{
+				color: #83d4ff;
+			}
+			@{pl-k}{
+				color: #d69a00;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #a5d6ff;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #ffa657;
+			}
+			@{pl-bu}{
+				color: #c38000;
+			}
+			@{pl-ii}{
+				color: #f0f6fc;
+				background-color: #633e00;
+			}
+			@{pl-c2}{
+				color: #f0f6fc;
+				background-color: #865401;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #83d4ff;
+			}
+			@{pl-ml}{
+				color: #f2cc60;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #1f6feb;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #c9d1d9;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #c9d1d9;
+			}
+			@{pl-md}{
+				color: #f0ec59;
+				background-color: #452f00;
+			}
+			@{pl-mi1}{
+				color: #a0e8ff;
+				background-color: #0a2861;
+			}
+			@{pl-mc}{
+				color: #ffdfb6;
+				background-color: #5a1e02;
+			}
+			@{pl-mi2}{
+				color: #c9d1d9;
+				background-color: #1158c7;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #d2a8ff;
+			}
+			@{pl-ba}{
+				color: #8b949e;
+			}
+			@{pl-sg}{
+				color: #484f58;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #a5d6ff;
+			}
+		}
+		&[data-github-theme="dimmed"]{
+			@{pl-c}{
+				color: #768390;
+			}
+			@{pl-c1},
+			@{pl-s} @{pl-v}{
+				color: #6cb6ff;
+			}
+			@{pl-e},
+			@{pl-en}{
+				color: #dcbdfb;
+			}
+			@{pl-smi},
+			@{pl-s} @{pl-s1}{
+				color: #adbac7;
+			}
+			@{pl-ent}{
+				color: #8ddb8c;
+			}
+			@{pl-k}{
+				color: #f47067;
+			}
+			@{pl-s},
+			@{pl-pds},
+			@{pl-s} @{pl-pse} @{pl-s1},
+			@{pl-sr},
+			@{pl-sr} @{pl-cce},
+			@{pl-sr} @{pl-sre},
+			@{pl-sr} @{pl-sra}{
+				color: #96d0ff;
+			}
+			@{pl-v},
+			@{pl-smw}{
+				color: #f69d50;
+			}
+			@{pl-bu}{
+				color: #e5534b;
+			}
+			@{pl-ii}{
+				color: #cdd9e5;
+				background-color: #922323;
+			}
+			@{pl-c2}{
+				color: #cdd9e5;
+				background-color: #ad2e2c;
+			}
+			@{pl-c2}::before{
+				content: "^M";
+			}
+			@{pl-sr} @{pl-cce}{
+				font-weight: bold;
+				color: #8ddb8c;
+			}
+			@{pl-ml}{
+				color: #eac55f;
+			}
+			@{pl-mh},
+			@{pl-mh} @{pl-en},
+			@{pl-ms}{
+				font-weight: bold;
+				color: #316dca;
+			}
+			@{pl-mi}{
+				font-style: italic;
+				color: #adbac7;
+			}
+			@{pl-mb}{
+				font-weight: bold;
+				color: #adbac7;
+			}
+			@{pl-md}{
+				color: #ffd8d3;
+				background-color: #78191b;
+			}
+			@{pl-mi1}{
+				color: #b4f1b4;
+				background-color: #1b4721;
+			}
+			@{pl-mc}{
+				color: #ffddb0;
+				background-color: #682d0f;
+			}
+			@{pl-mi2}{
+				color: #adbac7;
+				background-color: #255ab2;
+			}
+			@{pl-mdr}{
+				font-weight: bold;
+				color: #dcbdfb;
+			}
+			@{pl-ba}{
+				color: #768390;
+			}
+			@{pl-sg}{
+				color: #545d68;
+			}
+			@{pl-corl}{
+				text-decoration-line: underline;
+				text-decoration-style: solid;
+				text-decoration-color: currentcolor;
+				text-decoration-thickness: auto;
+				color: #96d0ff;
+			}
 		}
 	}
 }

@@ -18,6 +18,9 @@ module.exports = {
 						editor.component.didUpdateStyles();
 				}
 			}),
+			atom.config.observe(`${pkgName}.colourMode`, value => value
+				? root.colourMode = value
+				: delete root.colourMode),
 			atom.config.observe(`${pkgName}.theme`, value => {
 				switch(value){
 					case "high-contrast":
@@ -25,7 +28,7 @@ module.exports = {
 						root.githubTheme = value;
 						break;
 					case "dimmed":
-						inDarkMode.matches
+						"dark" === root.colourMode || !root.colourMode && inDarkMode.matches
 							? root.githubTheme = value
 							: delete root.githubTheme;
 						break;
@@ -35,6 +38,7 @@ module.exports = {
 			}),
 		);
 		inDarkMode.onchange = ({matches}) => {
+			if(root.colourMode) return;
 			const theme = atom.config.get(`${pkgName}.theme`);
 			if("dimmed" === theme)
 				matches ? root.githubTheme = theme : delete root.githubTheme;
@@ -44,6 +48,7 @@ module.exports = {
 	deactivate(){
 		inDarkMode.onchange = null;
 		classes.remove("match-github-font");
+		delete root.colourMode;
 		delete root.githubTheme;
 		disposables.dispose();
 	},

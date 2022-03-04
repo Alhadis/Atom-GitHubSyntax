@@ -2,33 +2,70 @@
 // Generated file; do not edit. Instead, run `tools/update-styles.sh`.
 @import "./includes/scope-map.less";
 
-/* Light mode (default) */
-@media not all and (prefers-color-scheme: dark){
-	html:not([data-github-theme]),
-	html[data-github-theme=""]{
+/* Manually-selected light mode */
+html[data-colour-mode="light"]{
+	&:not([data-github-theme]),
+	&[data-github-theme=""]{
 		%light%
 	}
-	html[data-github-theme="high-contrast"]{
+	&[data-github-theme="high-contrast"]{
 		%lightHighContrast%
 	}
-	html[data-github-theme="colour-blind"]{
+	&[data-github-theme="colour-blind"]{
 		%lightColourBlind%
 	}
 }
 
-/* Dark mode */
-@media (prefers-color-scheme: dark){
-	html:not([data-github-theme]),
-	html[data-github-theme=""]{
+/* Manually-selected dark mode */
+html[data-colour-mode="dark"]{
+	&:not([data-github-theme]),
+	&[data-github-theme=""]{
 		%dark%
 	}
-	html[data-github-theme="high-contrast"]{
+	&[data-github-theme="high-contrast"]{
 		%darkHighContrast%
 	}
-	html[data-github-theme="colour-blind"]{
+	&[data-github-theme="colour-blind"]{
 		%darkColourBlind%
 	}
-	html[data-github-theme="dimmed"]{
+	&[data-github-theme="dimmed"]{
 		%darkDimmed%
+	}
+}
+
+/* System-synced light mode */
+@media not all and (prefers-color-scheme: dark){
+	html[data-colour-mode=""],
+	html:not([data-colour-mode]){
+		&:not([data-github-theme]),
+		&[data-github-theme=""]{
+			%light%
+		}
+		&[data-github-theme="high-contrast"]{
+			%lightHighContrast%
+		}
+		&[data-github-theme="colour-blind"]{
+			%lightColourBlind%
+		}
+	}
+}
+
+/* System-synced dark mode */
+@media (prefers-color-scheme: dark){
+	html[data-colour-mode=""],
+	html:not([data-colour-mode]){
+		&:not([data-github-theme]),
+		&[data-github-theme=""]{
+			%dark%
+		}
+		&[data-github-theme="high-contrast"]{
+			%darkHighContrast%
+		}
+		&[data-github-theme="colour-blind"]{
+			%darkColourBlind%
+		}
+		&[data-github-theme="dimmed"]{
+			%darkDimmed%
+		}
 	}
 }

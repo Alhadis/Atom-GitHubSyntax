@@ -21,7 +21,7 @@ To-do list
 ----------
 *	[ ] Setup continuous integration
 *	[ ] Write up contributor docs
-*	[ ] Add setting to enable manual dark/light-mode selection
+*	[x] Add setting to enable manual dark/light-mode selection
 *	[ ] Investigate supporting ChromeDriver for headless updates
 
 

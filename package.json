@@ -21,8 +21,20 @@
 		"atom": "*"
 	},
 	"configSchema": {
-		"theme": {
+		"colourMode": {
 			"order": 1,
+			"title": "Colour mode",
+			"description": "Which colour motif to use, if not derived from the system's appearance settings.",
+			"type": "string",
+			"default": "",
+			"enum": [
+				{"value": "",      "description": "Sync with system"},
+				{"value": "dark",  "description": "Dark"},
+				{"value": "light", "description": "Light"}
+			]
+		},
+		"theme": {
+			"order": 2,
 			"title": "Theme variant",
 			"description": "Select an alternate colour-palette.",
 			"type": "string",
@@ -35,7 +47,7 @@
 			]
 		},
 		"matchFont": {
-			"order": 2,
+			"order": 3,
 			"title": "Match font",
 			"description": "Override user-configured editor settings to match the exact appearance of source-code on GitHub.",
 			"type": "boolean",

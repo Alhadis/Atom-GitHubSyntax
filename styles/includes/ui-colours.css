@@ -1,5 +1,5 @@
-/* Light mode (default) */
-:root{
+/* Light mode */
+html{
 	--color-fg-default:                #24292f;
 	--color-accent-muted:              #54aeff66;
 	--color-canvas-default:            #fff;
@@ -12,16 +12,43 @@
 }
 
 /* Dark mode */
-@media (prefers-color-scheme: dark){
-	:root{
-		--color-fg-default:                #c9d1d9;
-		--color-accent-muted:              #388bfd66;
-		--color-canvas-default:            #0d1117;
-		--color-border-default:            #30363d;
-		--color-fg-subtle:                 #484f58;
-		--color-diff-blob-addition-num-bg: #3fb9504d;
-		--color-diff-blob-deletion-num-bg: #f851494d;
-		--color-attention-subtle:          #bb800926;
-		--color-attention-muted:           #bb800966;
+body{
+	--color-fg-default:                #c9d1d9;
+	--color-accent-muted:              #388bfd66;
+	--color-canvas-default:            #0d1117;
+	--color-border-default:            #30363d;
+	--color-fg-subtle:                 #484f58;
+	--color-diff-blob-addition-num-bg: #3fb9504d;
+	--color-diff-blob-deletion-num-bg: #f851494d;
+	--color-attention-subtle:          #bb800926;
+	--color-attention-muted:           #bb800966;
+}
+
+
+/* Exploit the cascade to switch between light/dark colour sets */
+html[data-colour-mode="light"] > body{
+	--color-fg-default:                unset;
+	--color-accent-muted:              unset;
+	--color-canvas-default:            unset;
+	--color-border-default:            unset;
+	--color-fg-subtle:                 unset;
+	--color-diff-blob-addition-num-bg: unset;
+	--color-diff-blob-deletion-num-bg: unset;
+	--color-attention-subtle:          unset;
+	--color-attention-muted:           unset;
+}
+
+@media not all and (prefers-color-scheme: dark){
+	html[data-colour-mode=""]    > body,
+	html:not([data-colour-mode]) > body{
+		--color-fg-default:                unset;
+		--color-accent-muted:              unset;
+		--color-canvas-default:            unset;
+		--color-border-default:            unset;
+		--color-fg-subtle:                 unset;
+		--color-diff-blob-addition-num-bg: unset;
+		--color-diff-blob-deletion-num-bg: unset;
+		--color-attention-subtle:          unset;
+		--color-attention-muted:           unset;
 	}
 }
