@@ -37,7 +37,7 @@
 		"matchFont": {
 			"order": 2,
 			"title": "Match font",
-			"description": "Override editor settings to match the exact font style used on GitHub.",
+			"description": "Override user-configured editor settings to match the exact appearance of source-code on GitHub.",
 			"type": "boolean",
 			"default": true
 		}
