@@ -52,6 +52,13 @@
 			"description": "Override user-configured editor settings to match the exact appearance of source-code on GitHub.",
 			"type": "boolean",
 			"default": true
+		},
+		"matchSize": {
+			"order": 4,
+			"title": "Match size",
+			"description": "Force the editor to use GitHub's text-size when the above setting is enabled.",
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

@@ -11,13 +11,8 @@ module.exports = {
 	activate(){
 		disposables?.dispose();
 		disposables = new CompositeDisposable(
-			atom.config.observe(`${pkgName}.matchFont`, value => {
-				if(value !== classes.contains("match-github-font")){
-					classes.toggle("match-github-font");
-					for(const editor of atom.textEditors.editors)
-						editor.component.didUpdateStyles();
-				}
-			}),
+			atom.config.observe(`${pkgName}.matchSize`, value => this.toggle("match-github-size", value)),
+			atom.config.observe(`${pkgName}.matchFont`, value => this.toggle("match-github-font", value)),
 			atom.config.observe(`${pkgName}.colourMode`, value => value
 				? root.colourMode = value
 				: delete root.colourMode),
@@ -47,9 +42,30 @@ module.exports = {
 	
 	deactivate(){
 		inDarkMode.onchange = null;
-		classes.remove("match-github-font");
+		classes.remove("match-github-font", "match-github-size");
 		delete root.colourMode;
 		delete root.githubTheme;
 		disposables.dispose();
+	},
+	
+	toggle(name, value = !classes.contains(name)){
+		if(value === classes.contains(name)) return;
+		classes.toggle(name, value);
+		this.update();
+		return value;
+	},
+	
+	updateQueued: false,
+	update(){
+		if(this.updateQueued) return;
+		this.updateQueued = true;
+		process.nextTick(() => {
+			this.updateQueued = false;
+			if(!classes.contains("match-github-font"))
+				classes.remove("match-github-size");
+			classes.length || document.documentElement.removeAttribute("class");
+			for(const editor of atom.textEditors.editors)
+				editor.component.didUpdateStyles();
+		});
 	},
 };
