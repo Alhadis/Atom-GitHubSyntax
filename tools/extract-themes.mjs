@@ -164,11 +164,13 @@ async function main(){
 		light:             await scrapeStyles("light", "light"),
 		lightHighContrast: await scrapeStyles("light", "light_high_contrast"),
 		lightColourBlind:  await scrapeStyles("light", "light_colorblind"),
+		lightTritanopia:   await scrapeStyles("light", "light_tritanopia"),
 		
 		// Dark-coloured themes
 		dark:              await scrapeStyles("dark", "dark"),
 		darkHighContrast:  await scrapeStyles("dark", "dark_high_contrast"),
 		darkColourBlind:   await scrapeStyles("dark", "dark_colorblind"),
+		darkTritanopia:    await scrapeStyles("dark", "dark_tritanopia"),
 		darkDimmed:        await scrapeStyles("dark", "dark_dimmed"),
 	};
 	const result = template.replace(

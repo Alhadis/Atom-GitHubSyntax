@@ -13,7 +13,7 @@ Features
 --------
 *	Automatic dark-mode detected from system settings.
 *	Support for high-contrast and “dimmed” theme variants.
-*	Support for [colourblind users][3] (protanopia and deuteranopia)
+*	Support for [colourblind users][3] (protanopia, deuteranopia, tritanopia)
 *	Pathologically-accurate highlighting (see next section)
 *	Automated styling updates; run `tools/update-styles.sh` to update CSS.
 

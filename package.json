@@ -42,7 +42,8 @@
 			"enum": [
 				{"value": "",              "description": "None (default)"},
 				{"value": "high-contrast", "description": "High contrast"},
-				{"value": "colour-blind",  "description": "Colour-blindness"},
+				{"value": "colour-blind",  "description": "Protanopia and deuteranopia"},
+				{"value": "tritanopia",    "description": "Tritanopia"},
 				{"value": "dimmed",        "description": "Dimmed (dark only)"}
 			]
 		},

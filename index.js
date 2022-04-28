@@ -20,6 +20,7 @@ module.exports = {
 				switch(value){
 					case "high-contrast":
 					case "colour-blind":
+					case "tritanopia":
 						root.githubTheme = value;
 						break;
 					case "dimmed":
