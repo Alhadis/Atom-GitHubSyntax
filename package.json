@@ -2,7 +2,7 @@
 	"name": "atom-github-syntax",
 	"theme": "syntax",
 	"private": true,
-	"version": "1.0.0",
+	"version": "1.1.0",
 	"homepage": "https://github.com/Alhadis/language-etc/blob/master/samples/lists/scope-previews.nanorc",
 	"description": "Up-to-date syntax colours that match GitHub's motif, including day/night mode.",
 	"repository": "https://github.com/Alhadis/Atom-GitHubSyntax",
