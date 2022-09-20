@@ -117,7 +117,9 @@ async function main(){
 					if(!selector.trim().split(/\s*,\s*/g).every(str => saneDef.test(str)))
 						throw new TypeError(`Syntax variable defined in unexpected place: ${selector}`);
 				
-				const value = bodyStyle.getPropertyValue(key);
+				let value = bodyStyle.getPropertyValue(key);
+				if(/^#[A-Fa-f0-9]{3,}$/.test(value))
+					value = value.toLowerCase();
 				for(const [rule, props] of varRefs[key]){
 					for(const prop of props){
 						console.log(`${prop}: ${rule.style[prop]} -> ${value}`);
