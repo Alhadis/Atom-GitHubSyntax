@@ -79,6 +79,12 @@ async function main(){
 				key.startsWith("--") && (varDefs[key] ??= new Set()).add(rule);
 			
 			const {selector} = rule;
+			switch(selector){
+				case ".Header .header-search-button .pl-c1":
+				case ".Header .header-search-button .pl-en":
+					console.warn(`Skipping selector: ${selector}`);
+					continue;
+			}
 			if(plClassRegex.test(selector)){
 				plClassRegex.lastIndex = 0;
 				
