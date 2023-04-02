@@ -92,17 +92,17 @@ variables listed in [`scope-map.less`](styles/includes/scope-map.less).
 
 ### Related links
 *	[Live preview of all TextMate scopes supported by GitHub][6]
-*	[GitHub Lightshow](https://github-lightshow.herokuapp.com/), a webapp
-	to preview the output of TextMate grammars on GitHub. Note that styling
-	is not kept in-sync with the rest of the site, and is often outdated.
 *	[`textmate(5)` man page][7] documenting the TextMate grammar format.
-
+*	[SCSS source][8] for Primer's various colour-themes. It's not directly
+	used by this project out of an overabundance of caution—no assumptions
+	are ever made about the stability of GitHub's pipeline and front-end.
 
 <!-- Referenced links --------------------------------------------------------->
 [1]: https://github.com/github/linguist/blob/HEAD/CONTRIBUTING.md
 [2]: https://github.com/Alhadis/Atom-GitHubSyntax/blob/static/preview.svg?raw=1
 [3]: https://github.com/github/roadmap/issues/357
-[4]: https://flight-manual.atom.io/hacking-atom/sections/creating-a-theme/
+[4]: http://bit.ly/3zqD0Br
 [5]: ./tools/build-scope-map.mjs
 [6]: https://git.io/Jf1IY
 [7]: https://github.com/Alhadis/.files/blob/HEAD/share/man/man5/textmate.5
+[8]: https://github.com/primer/css/tree/main/src/color-modes
